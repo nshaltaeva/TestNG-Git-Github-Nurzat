@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/nshal/IdeaProjects/TestNG-Git-Github-Nurzat">
+        <classes>
+            <class name="org.qafellas.tests.ExampleTests">
+                <methods>
+                    <include name="setUp"/>
+                    <include name="test1"/>
+                    <include name="atest2"/>
+                    <include name="test3"/>
+                    <include name="tearDown"/>
+                </methods>
+            </class>
+            <class name="org.qafellas.tests.StringTests">
+                <methods>
+                    <include name="upperCaseTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
