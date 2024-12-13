@@ -31,6 +31,6 @@ jobs:
       if: always()
       with:
         name: TestNG Tests            # Name of the check run which will be created
-        path: target/surefile-reports/junitreports/*.xml    # Path to test results
+        path: target/surefire-reports/junitreports/*.xml    # Path to test results
         reporter: java-junit        # Format of test results
         max-annotations: '30'
