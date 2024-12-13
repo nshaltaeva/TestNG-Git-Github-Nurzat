@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Suite">
+    
+    <listeners>
+        <listener class-name="org.qafellas.tests.Listener"></listener>
+    </listeners>
+
+    <test name="Tests"  >
+        
+         <classes>
+           <class name="org.qafellas.tests.StringTests"/>
+
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- Before Suite -->
+<suite name="All Test Suite">
+    <!-- Before Test -->
+    <test verbose="2" preserve-order="true"
+          name="Annotations Test">
+        <classes>
+            <class name="org.qafellas.tests.Annotations1">
+                <methods>
+                    <!-- Before Method -->
+                    <include name="test1"/>
+                    <!-- After Method -->
+                    <!-- Before Method -->
+                    <include name="test2"/>
+                    <!-- After Method -->
+                </methods>
+            </class>
+            <!-- Before Class -->
+            <class name="org.qafellas.tests.Annotations2"></class>
+            <!-- After Class -->
+            <class name="org.qafellas.tests.Annotations3"></class>
+        </classes>
+    </test>
+    <!-- After Test -->
+
+</suite>
+        <!-- After Suite -->

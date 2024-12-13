@@ -2,9 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestNG Suite">
 
-    <parameter name="productName" value="pen"/>
-    <parameter name="quantity" value="5"/>
-    <test name="Regression Tests" parallel="classes" >
+    <test name="Tests"  >
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
         <classes>
             <class name="org.qafellas.tests.Annotations1"/>
             <class name="org.qafellas.tests.Annotations2"/>
@@ -12,8 +16,6 @@
             <class name="org.qafellas.tests.ArrayTests"/>
             <class name="org.qafellas.tests.StringTests"/>
             <class name="org.qafellas.tests.ExampleTests"/>
-            <class name="org.qafellas.tests.DataProviderTest"/>
-            <class name="org.qafellas.tests.ParametersTest"/>
             <class name="org.qafellas.tests.ArithmeticTests"/>
         </classes>
     </test>

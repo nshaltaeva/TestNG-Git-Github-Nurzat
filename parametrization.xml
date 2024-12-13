@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Suite">
+
+    <test name="Tests"  >
+        <parameter name="productName" value="pen"/>
+        <parameter name="quantity" value="5"/>
+
+         <classes>
+           <class name="org.qafellas.tests.ArithmeticTests"/>
+            <class name="org.qafellas.tests.ParametersTest"/>
+        </classes>
+    </test>
+</suite>
