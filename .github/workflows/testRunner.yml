@@ -24,8 +24,8 @@ jobs:
       with:
             node-version: 18
 
-    - name: Install junit merge package
-      run: npm install -g junit-merge
+    - name: Install junit merge package and fs library
+      run: npm install -g junit-merge fs
 
     - name: Set up JDK 21
       uses: actions/setup-java@v4
@@ -56,4 +56,23 @@ jobs:
         GH_TOKEN: ${{secrets.GITHUB.TOKEN}}
       run: |
         echo "Test Results Outputs"
-        echo "${{ steps.test_report.outputs }}"
+        echo "${{ toJSON(steps.test_report.outputs) }}"
+        ech0 "FAILED=${{steps.test_report.output.failed}}" | tee -a $GITHUB_ENV
+        echo "PASSED=${{steps.test_report.output.passed}}" | tee -a $GITHUB_ENV
+        echo "SKIPPED=${{steps.test_report.output.skipped}}" | tee -a $GITHUB_ENV
+        echo "TEST_RUN_HTML=${{steps.test_report.output.url_html}}" | tee -a $GITHUB_ENV
+
+    - name: Create slack json report
+      if: always()
+      run: node src/main/java/org/qafellas/utilities/slackPayloadGenerator.js
+
+    - name: Send JSON report to Slack
+      if: always()
+      id: slack
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        payload-file-path: "./jsonReporter.json"
+      env:
+        SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
