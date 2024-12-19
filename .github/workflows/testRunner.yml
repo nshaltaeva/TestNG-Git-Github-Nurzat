@@ -3,6 +3,8 @@ name: TestNG-Git-Github Tests
 on:
   push:
     branches: [ "master" ]
+  schedule:
+      - cron: '0 5 * * 4' #schedule cron job crontab.guru Minutes hour day(month) month day(week) UTC(British time)
 
 permissions:
   id-token: write
