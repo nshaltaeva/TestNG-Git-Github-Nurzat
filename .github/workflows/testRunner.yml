@@ -41,6 +41,7 @@ jobs:
       run: junit-merge -o target/results.xml -d target/surefire-reports/junitreports/
 
     - name: Test Report
+      id: test_report
       uses: dorny/test-reporter@v1
       if: always()
       with:
@@ -48,3 +49,11 @@ jobs:
         path: target/surefire-reports/junitreports/*.xml    # Path to test results
         reporter: java-junit        # Format of test results
         max-annotations: '30'
+
+    - name: Read test report results
+      if: always()
+      env:
+        GH_TOKEN: ${{secrets.GITHUB.TOKEN}}
+      run: |
+        echo "Test Results Outputs"
+        echo "steps.test_report.outputs"
